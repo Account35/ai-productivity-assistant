@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Search, Sparkles, Loader2 } from "lucide-react";
 import { useServerFn } from "@tanstack/react-start";
+import ReactMarkdown from "react-markdown";
 
 import { PageHeader } from "@/components/page-header";
 import { AiDisclaimer } from "@/components/ai-disclaimer";
