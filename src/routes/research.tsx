@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Search, Sparkles, Loader2 } from "lucide-react";
 import { useServerFn } from "@tanstack/react-start";
+import ReactMarkdown from "react-markdown";
 
 import { PageHeader } from "@/components/page-header";
 import { AiDisclaimer } from "@/components/ai-disclaimer";
@@ -61,13 +62,8 @@ function ResearchPage() {
     }
   };
 
-  const updateSummary = (v: string) => result && setResult({ ...result, summary: v });
-  const updateList = (key: "insights" | "recommendations", i: number, v: string) => {
-    if (!result) return;
-    const next = [...result[key]];
-    next[i] = v;
-    setResult({ ...result, [key]: next });
-  };
+
+
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
@@ -117,40 +113,37 @@ function ResearchPage() {
           <CardContent className="space-y-6">
             <div className="space-y-2">
               <Label>Summary</Label>
-              <Textarea
-                value={result.summary}
-                onChange={(e) => updateSummary(e.target.value)}
-                rows={4}
-              />
+              <div className="prose prose-sm dark:prose-invert max-w-none rounded-md border bg-muted/30 p-4">
+                <ReactMarkdown>{result.summary}</ReactMarkdown>
+              </div>
             </div>
 
             <div className="space-y-2">
               <Label>Key Insights</Label>
-              <div className="space-y-2">
+              <ul className="prose prose-sm dark:prose-invert max-w-none list-disc space-y-1 rounded-md border bg-muted/30 p-4 pl-8">
                 {result.insights.map((it, i) => (
-                  <Textarea
-                    key={i}
-                    value={it}
-                    onChange={(e) => updateList("insights", i, e.target.value)}
-                    rows={2}
-                  />
+                  <li key={i}>
+                    <ReactMarkdown components={{ p: ({ children }) => <>{children}</> }}>
+                      {it}
+                    </ReactMarkdown>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             <div className="space-y-2">
               <Label>Actionable Recommendations</Label>
-              <div className="space-y-2">
+              <ul className="prose prose-sm dark:prose-invert max-w-none list-disc space-y-1 rounded-md border bg-muted/30 p-4 pl-8">
                 {result.recommendations.map((it, i) => (
-                  <Textarea
-                    key={i}
-                    value={it}
-                    onChange={(e) => updateList("recommendations", i, e.target.value)}
-                    rows={2}
-                  />
+                  <li key={i}>
+                    <ReactMarkdown components={{ p: ({ children }) => <>{children}</> }}>
+                      {it}
+                    </ReactMarkdown>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
+
 
             <OutputActions
               text={toText(result)}
