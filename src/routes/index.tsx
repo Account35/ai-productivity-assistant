@@ -13,10 +13,10 @@ export const Route = createFileRoute("/")({
         content:
           "Automate emails, research, and everyday workplace tasks with an AI-powered productivity assistant.",
       },
-      { property: "og:title", content: "AI Workplace Productivity Assistant" },
+      { property: "og:title", content: "Dashboard — AI Workplace Productivity Assistant" },
       {
         property: "og:description",
-        content: "Generate emails, summarize research, and chat with an AI workplace assistant.",
+        content: "Automate emails, research, and everyday workplace tasks with an AI-powered productivity assistant.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

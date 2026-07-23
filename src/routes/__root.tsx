@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AI Workplace Productivity Assistant" },
+      { title: "Dashboard — AI Workplace Productivity Assistant" },
       {
         name: "description",
         content:
@@ -88,6 +88,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "author", content: "AI Workplace" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { property: "og:title", content: "Dashboard — AI Workplace Productivity Assistant" },
+      { name: "twitter:title", content: "Dashboard — AI Workplace Productivity Assistant" },
+      { property: "og:description", content: "Automate emails, research, and everyday workplace tasks with an AI-powered productivity assistant." },
+      { name: "twitter:description", content: "Automate emails, research, and everyday workplace tasks with an AI-powered productivity assistant." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b11467f5-46e3-4c82-b551-32340b7f60b0/id-preview-ec8ec526--a9125756-05cc-4245-bba8-93716551c24a.lovable.app-1784795714361.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b11467f5-46e3-4c82-b551-32340b7f60b0/id-preview-ec8ec526--a9125756-05cc-4245-bba8-93716551c24a.lovable.app-1784795714361.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
