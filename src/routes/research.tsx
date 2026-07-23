@@ -113,40 +113,37 @@ function ResearchPage() {
           <CardContent className="space-y-6">
             <div className="space-y-2">
               <Label>Summary</Label>
-              <Textarea
-                value={result.summary}
-                onChange={(e) => updateSummary(e.target.value)}
-                rows={4}
-              />
+              <div className="prose prose-sm dark:prose-invert max-w-none rounded-md border bg-muted/30 p-4">
+                <ReactMarkdown>{result.summary}</ReactMarkdown>
+              </div>
             </div>
 
             <div className="space-y-2">
               <Label>Key Insights</Label>
-              <div className="space-y-2">
+              <ul className="prose prose-sm dark:prose-invert max-w-none list-disc space-y-1 rounded-md border bg-muted/30 p-4 pl-8">
                 {result.insights.map((it, i) => (
-                  <Textarea
-                    key={i}
-                    value={it}
-                    onChange={(e) => updateList("insights", i, e.target.value)}
-                    rows={2}
-                  />
+                  <li key={i}>
+                    <ReactMarkdown components={{ p: ({ children }) => <>{children}</> }}>
+                      {it}
+                    </ReactMarkdown>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             <div className="space-y-2">
               <Label>Actionable Recommendations</Label>
-              <div className="space-y-2">
+              <ul className="prose prose-sm dark:prose-invert max-w-none list-disc space-y-1 rounded-md border bg-muted/30 p-4 pl-8">
                 {result.recommendations.map((it, i) => (
-                  <Textarea
-                    key={i}
-                    value={it}
-                    onChange={(e) => updateList("recommendations", i, e.target.value)}
-                    rows={2}
-                  />
+                  <li key={i}>
+                    <ReactMarkdown components={{ p: ({ children }) => <>{children}</> }}>
+                      {it}
+                    </ReactMarkdown>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
+
 
             <OutputActions
               text={toText(result)}
