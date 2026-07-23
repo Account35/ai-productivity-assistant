@@ -8,7 +8,7 @@ import { PageHeader } from "@/components/page-header";
 import { AiDisclaimer } from "@/components/ai-disclaimer";
 import { OutputActions } from "@/components/output-actions";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
+import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { generateResearch } from "@/lib/ai.functions";
