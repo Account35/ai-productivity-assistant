@@ -62,13 +62,8 @@ function ResearchPage() {
     }
   };
 
-  const updateSummary = (v: string) => result && setResult({ ...result, summary: v });
-  const updateList = (key: "insights" | "recommendations", i: number, v: string) => {
-    if (!result) return;
-    const next = [...result[key]];
-    next[i] = v;
-    setResult({ ...result, [key]: next });
-  };
+
+
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
